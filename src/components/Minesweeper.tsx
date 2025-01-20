@@ -93,7 +93,7 @@ const Minesweeper = () => {
   }, []);
 
   const getCellColor = (cell: Cell) => {
-    if (!cell.isRevealed) return `${theme.unexploredTile} hover:brightness-95`;
+    if (!cell.isRevealed) return theme.unexploredTile;
     if (cell.isMine) return "bg-red-500";
     return theme.exploredTile;
   };
@@ -158,6 +158,7 @@ const Minesweeper = () => {
                     transition-colors duration-200
                     ${cell.isRevealed ? "shadow-inner" : "shadow-sm"}
                     ${gameState !== "playing" ? "cursor-not-allowed" : "cursor-pointer"}
+                    hover:brightness-95
                   `}
                   disabled={gameState !== "playing"}
                 >
